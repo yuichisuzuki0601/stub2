@@ -1,0 +1,14 @@
+@charset "UTF-8";
+
+.w-component {
+	padding: 20px;
+	width: 100%;
+}
+
+input {
+	width: 80%;
+}
+
+button {
+	width: 80%;
+}

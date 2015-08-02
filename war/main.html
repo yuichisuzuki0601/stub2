@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<title>stub2</title>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/css/bootstrap.min.css" />
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/css/bootstrap-theme.min.css" />
+<link rel="stylesheet" href="common.css" />
+<link rel="stylesheet" href="main.css" />
+<link rel="apple-touch-icon" href="favicon.ico" />
+</head>
+<body style="padding-top: 250px;">
+	<div id="header-view">
+		<nav class="navbar navbar-inverse navbar-fixed-top">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<span id="my-info" class="navbar-brand"></span>
+				</div>
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<form class="navbar-form navbar-left" role="search">
+						<div class="form-group">
+							<input type="text" class="form-control" placeholder="Search">
+						</div>
+						<button type="submit" class="btn btn-default">Submit</button>
+					</form>
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="#div-modal" class="btn" data-toggle="modal">change password</a></li>
+						<li><a id="btn-delete-account" class="btn">delete account</a></li>
+						<li><a href="login.html" class="btn">logout</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<div id="div-modal" class="modal fade">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title">change password</h4>
+					</div>
+					<div class="modal-body">
+						<label for="change-password">new password:</label><input id="change-password" type="text">
+					</div>
+					<div class="modal-footer">
+						<button class="btn btn-default" type="button" data-dismiss="modal">cancel</button>
+						<button id="btn-change-password" class="btn btn-primary" type="button">change password</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div style="padding: 0px 20px;">
+		<div id="post-view" class="bottom-line" style="background: #fff; padding: 20px; position: fixed; right: 0px; top: 50px; z-index: 1;">
+			<textarea id="text" style="height: 100px; width: 100%;"></textarea>
+			<br /><br />
+			<button id="btn-post-comment" class="btn btn-primary" style="width: 100%;">post comment</button>
+		</div>
+		<div id="comments-view">
+			<script id="tmpl-comment-view" type="text/template">
+				<div class="comment-view bottom-line" style="padding: 20px;">
+					<span>writer:<%= ownerId %> ----- post-date:<%= postDateStr %></span>
+					<% if (myComment) { %>
+					<span> ----- </span>
+					<div class="btn-group btn-group-xs" role="group" aria-label="...">
+						<button class="btn-edit-comment btn btn-default">edit</button>
+						<button class="btn-delete-comment btn btn-danger">delete</button>
+					</div>
+					<% }%>
+					<br /><br />
+					<span><%= text %></span>
+				</div>
+			</script>
+		</div>
+	</div>
+</body>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<script src="models.js"></script>
+<script src="auth.js"></script>
+<script src="main.js"></script>
+</html>
